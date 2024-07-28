@@ -1,5 +1,6 @@
 import AbstractDuckFactory from '../factory/AbstractDuckFactory';
 import CountingDuckFactory from '../factory/CountingDuckFactory';
+import Flock from '../composite/Flock';
 import Goose from '../class/Goose';
 import GooseAdapter from '../adapter/GooseAdapter';
 import Quackable from '../interface/Quackable';
@@ -20,21 +21,41 @@ export default class DuckSimulator {
     if (duck instanceof AbstractDuckFactory) {
       const duckFactory = duck;
 
-      const mallardDuck: Quackable = duckFactory.createMallardDuck();
       const redheadDuck: Quackable = duckFactory.createRedheadDuck();
       const duckCall: Quackable = duckFactory.createDuckCall();
       const rubberDuck: Quackable = duckFactory.createRubberDuck();
       const gooseDuck: Quackable = new GooseAdapter(new Goose());
 
-      console.log('Duck Simulator: With Abstract Factory');
+      console.log('Duck Simulator: With Composite - Flocks');
 
-      this.simulate(mallardDuck);
-      this.simulate(redheadDuck);
-      this.simulate(duckCall);
-      this.simulate(rubberDuck);
-      this.simulate(gooseDuck);
+      const flockOfDucks: Flock = new Flock();
 
-      console.log(QuackCounter.getQuacks() + ' quacks were counted');
+      flockOfDucks.add(redheadDuck);
+      flockOfDucks.add(duckCall);
+      flockOfDucks.add(rubberDuck);
+      flockOfDucks.add(gooseDuck);
+
+      const flockOfMallards: Flock = new Flock();
+
+      const mallardOne: Quackable = duckFactory.createMallardDuck();
+      const mallardTwo: Quackable = duckFactory.createMallardDuck();
+      const mallardThree: Quackable = duckFactory.createMallardDuck();
+      const mallardFour: Quackable = duckFactory.createMallardDuck();
+
+      flockOfMallards.add(mallardOne);
+      flockOfMallards.add(mallardTwo);
+      flockOfMallards.add(mallardThree);
+      flockOfMallards.add(mallardFour);
+
+      flockOfDucks.add(flockOfMallards);
+
+      console.log('Duck Simulator: Whole Flock Simulation');
+      this.simulate(flockOfDucks);
+
+      console.log('Duck Simulator: Mallard Flock Simulation');
+      this.simulate(flockOfMallards);
+
+      console.log('The ducks quacked ' + QuackCounter.getQuacks() + ' times');
     } else {
       duck.quack();
     }
