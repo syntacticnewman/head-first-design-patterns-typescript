@@ -1,8 +1,8 @@
 import DuckCall from "../class/DuckCall";
 import MallardDuck from "../class/MallardDuck";
+import Quackable from "../interface/Quackable";
 import RedheadDuck from "../class/RedheadDuck";
 import RubberDuck from "../class/RubberDuck";
-import Quackable from "../interface/Quackable";
 
 export default class DuckSimulatorV1 {
   public static main(): void {
