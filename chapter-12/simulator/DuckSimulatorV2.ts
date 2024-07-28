@@ -23,7 +23,7 @@ export default class DuckSimulatorV2 {
       const rubberDuck = new RubberDuck();
       const goose = new GooseAdapter(new Goose());
 
-      console.log("Duck Simulator");
+      console.log("Duck Simulator: With Goose Adapter");
 
       this.simulate(mallardDuck);
       this.simulate(redheadDuck);
@@ -36,5 +36,5 @@ export default class DuckSimulatorV2 {
   }
 }
 
-// $ npx ts-node DuckSimulatorV1
+// $ npx ts-node DuckSimulatorV2
 if (require.main === module) DuckSimulatorV2.main();
