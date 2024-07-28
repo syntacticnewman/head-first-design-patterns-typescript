@@ -1,30 +1,32 @@
-import DuckCall from '../class/DuckCall';
+import AbstractDuckFactory from '../factory/AbstractDuckFactory';
+import CountingDuckFactory from '../factory/CountingDuckFactory';
 import Goose from '../class/Goose';
 import GooseAdapter from '../adapter/GooseAdapter';
-import MallardDuck from '../class/MallardDuck';
 import Quackable from '../interface/Quackable';
 import QuackCounter from '../decorator/QuackCounter';
-import RedheadDuck from '../class/RedheadDuck';
-import RubberDuck from '../class/RubberDuck';
 
 export default class DuckSimulator {
   public static main(): void {
     const simulator: DuckSimulator = new DuckSimulator();
-    simulator.simulate();
+    const duckFactory: AbstractDuckFactory = new CountingDuckFactory();
+
+    simulator.simulate(duckFactory);
   }
 
-  simulate(): void;
+  simulate(duckFactory: AbstractDuckFactory): void;
   simulate(duck: Quackable): void;
 
-  simulate(duck?: Quackable) {
-    if (!duck) {
-      const mallardDuck: Quackable = new QuackCounter(new MallardDuck());
-      const redheadDuck: Quackable = new QuackCounter(new RedheadDuck());
-      const duckCall: Quackable = new QuackCounter(new DuckCall());
-      const rubberDuck: Quackable = new QuackCounter(new RubberDuck());
+  simulate(duck: AbstractDuckFactory | Quackable) {
+    if (duck instanceof AbstractDuckFactory) {
+      const duckFactory = duck;
+
+      const mallardDuck: Quackable = duckFactory.createMallardDuck();
+      const redheadDuck: Quackable = duckFactory.createRedheadDuck();
+      const duckCall: Quackable = duckFactory.createDuckCall();
+      const rubberDuck: Quackable = duckFactory.createRubberDuck();
       const gooseDuck: Quackable = new GooseAdapter(new Goose());
 
-      console.log('Duck Simulator: With Decorator');
+      console.log('Duck Simulator: With Abstract Factory');
 
       this.simulate(mallardDuck);
       this.simulate(redheadDuck);
@@ -32,7 +34,7 @@ export default class DuckSimulator {
       this.simulate(rubberDuck);
       this.simulate(gooseDuck);
 
-      console.log('The ducks quacked ' + QuackCounter.getQuacks() + ' times');
+      console.log(QuackCounter.getQuacks() + ' quacks were counted');
     } else {
       duck.quack();
     }
