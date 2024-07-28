@@ -3,12 +3,11 @@ import Quackable from '../interface/Quackable';
 export default class Flock implements Quackable {
   quackers: Quackable[] = [];
 
+  // NOTE: A `quacker` can also be a `Flock` as it implements the `Quackable` interface.
+  // We could implement the logic to flatten the array of `quackers` like `this.quackers.push(...quacker.quackers)`
+  // when `quacker` is an instance of `Flock`, but that'll remove the beauty of this pattern.
   public add(quacker: Quackable): void {
-    if (Array.isArray(quacker)) {
-      this.quackers.push(...quacker);
-    } else {
-      this.quackers.push(quacker);
-    }
+    this.quackers.push(quacker);
   }
 
   public quack(): void {
