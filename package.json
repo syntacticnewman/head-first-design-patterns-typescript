@@ -1,8 +1,12 @@
 {
+  "name": "head-first-design-patterns-typescript",
+  "version": "0.0.0",
+  "description": "TypeScript implementations of design patterns from Head First Design Patterns (2nd Edition)",
   "scripts": {
     "format:check": "prettier --check .",
     "format:fix": "prettier --write ."
   },
+  "author": "Syntactic Newman",
   "devDependencies": {
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
