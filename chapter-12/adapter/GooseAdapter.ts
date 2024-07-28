@@ -1,5 +1,5 @@
-import Goose from "../class/Goose";
-import Quackable from "../interface/Quackable";
+import Goose from '../class/Goose';
+import Quackable from '../interface/Quackable';
 
 export default class GooseAdapter implements Quackable {
   public goose: Goose;

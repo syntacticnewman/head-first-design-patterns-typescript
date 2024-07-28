@@ -1,4 +1,4 @@
-import Quackable from "../interface/Quackable";
+import Quackable from '../interface/Quackable';
 
 export default class QuackCounter implements Quackable {
   public duck: Quackable;

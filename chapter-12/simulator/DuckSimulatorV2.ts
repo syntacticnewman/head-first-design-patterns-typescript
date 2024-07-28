@@ -1,10 +1,10 @@
-import DuckCall from "../class/DuckCall";
-import Goose from "../class/Goose";
-import GooseAdapter from "../adapter/GooseAdapter";
-import MallardDuck from "../class/MallardDuck";
-import Quackable from "../interface/Quackable";
-import RedheadDuck from "../class/RedheadDuck";
-import RubberDuck from "../class/RubberDuck";
+import DuckCall from '../class/DuckCall';
+import Goose from '../class/Goose';
+import GooseAdapter from '../adapter/GooseAdapter';
+import MallardDuck from '../class/MallardDuck';
+import Quackable from '../interface/Quackable';
+import RedheadDuck from '../class/RedheadDuck';
+import RubberDuck from '../class/RubberDuck';
 
 export default class DuckSimulatorV2 {
   public static main(): void {
@@ -23,7 +23,7 @@ export default class DuckSimulatorV2 {
       const rubberDuck = new RubberDuck();
       const goose = new GooseAdapter(new Goose());
 
-      console.log("Duck Simulator: With Goose Adapter");
+      console.log('Duck Simulator: With Goose Adapter');
 
       this.simulate(mallardDuck);
       this.simulate(redheadDuck);

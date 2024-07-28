@@ -1,8 +1,8 @@
-import DuckCall from "../class/DuckCall";
-import MallardDuck from "../class/MallardDuck";
-import Quackable from "../interface/Quackable";
-import RedheadDuck from "../class/RedheadDuck";
-import RubberDuck from "../class/RubberDuck";
+import DuckCall from '../class/DuckCall';
+import MallardDuck from '../class/MallardDuck';
+import Quackable from '../interface/Quackable';
+import RedheadDuck from '../class/RedheadDuck';
+import RubberDuck from '../class/RubberDuck';
 
 export default class DuckSimulatorV1 {
   public static main(): void {
@@ -20,7 +20,7 @@ export default class DuckSimulatorV1 {
       const duckCall = new DuckCall();
       const rubberDuck = new RubberDuck();
 
-      console.log("Duck Simulator");
+      console.log('Duck Simulator');
 
       this.simulate(mallardDuck);
       this.simulate(redheadDuck);

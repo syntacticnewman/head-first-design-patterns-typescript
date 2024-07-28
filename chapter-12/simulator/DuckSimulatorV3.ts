@@ -1,11 +1,11 @@
-import DuckCall from "../class/DuckCall";
-import Goose from "../class/Goose";
-import GooseAdapter from "../adapter/GooseAdapter";
-import MallardDuck from "../class/MallardDuck";
-import Quackable from "../interface/Quackable";
-import QuackCounter from "../decorator/QuackCounter";
-import RedheadDuck from "../class/RedheadDuck";
-import RubberDuck from "../class/RubberDuck";
+import DuckCall from '../class/DuckCall';
+import Goose from '../class/Goose';
+import GooseAdapter from '../adapter/GooseAdapter';
+import MallardDuck from '../class/MallardDuck';
+import Quackable from '../interface/Quackable';
+import QuackCounter from '../decorator/QuackCounter';
+import RedheadDuck from '../class/RedheadDuck';
+import RubberDuck from '../class/RubberDuck';
 
 export default class DuckSimulatorV3 {
   public static main(): void {
@@ -24,7 +24,7 @@ export default class DuckSimulatorV3 {
       const rubberDuck = new QuackCounter(new RubberDuck());
       const goose = new GooseAdapter(new Goose());
 
-      console.log("Duck Simulator: With Decorator");
+      console.log('Duck Simulator: With Decorator');
 
       this.simulate(mallardDuck);
       this.simulate(redheadDuck);
@@ -32,7 +32,7 @@ export default class DuckSimulatorV3 {
       this.simulate(rubberDuck);
       this.simulate(goose);
 
-      console.log("The ducks quacked " + QuackCounter.getQuacks() + " times");
+      console.log('The ducks quacked ' + QuackCounter.getQuacks() + ' times');
     } else {
       duck.quack();
     }
