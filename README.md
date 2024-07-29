@@ -28,14 +28,23 @@ The project is organized by chapters and patterns:
 │       │   ├── MallardDuck.ts
 │       │   ├── RedheadDuck.ts
 │       │   └── RubberDuck.ts
-│       ├── ...
+│       ├── composite/
+│       │   └── Flock.ts
 │       ├── decorator/
 │       │   └── QuackCounter.ts
+│       ├── factory/
+│       │   ├── AbstractDuckFactory.ts
+│       │   ├── CountingDuckFactory.ts
+│       │   └── DuckFactory.ts
 │       ├── interface/
 │       │   └── Quackable.ts
+│       ├── observer/
+│       │   ├── Observable.ts
+│       │   ├── Observer.ts
+│       │   ├── QuackObservable.ts
+│       │   └── Quackologist.ts
 │       └── simulator/
-│           ├── DuckSimulator.ts
-│           └── ...
+│           └── DuckSimulator.ts
 ├── package.json
 └── README.md
 
