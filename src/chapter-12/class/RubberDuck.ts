@@ -21,4 +21,8 @@ export default class RubberDuck implements Quackable {
   public notifyObservers(): void {
     this.observable.notifyObservers();
   }
+
+  public toString(): string {
+    return 'Rubber Duck';
+  }
 }

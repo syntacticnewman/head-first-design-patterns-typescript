@@ -21,4 +21,8 @@ export default class MallardDuck implements Quackable {
   public notifyObservers(): void {
     this.observable.notifyObservers();
   }
+
+  public toString(): string {
+    return 'Mallard Duck';
+  }
 }

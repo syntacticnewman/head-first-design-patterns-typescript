@@ -21,4 +21,8 @@ export default class RedheadDuck implements Quackable {
   public notifyObservers(): void {
     this.observable.notifyObservers();
   }
+
+  public toString(): string {
+    return 'Redhead Duck';
+  }
 }

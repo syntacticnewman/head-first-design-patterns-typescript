@@ -24,4 +24,8 @@ export default class GooseAdapter implements Quackable {
   public notifyObservers(): void {
     this.observable.notifyObservers();
   }
+
+  public toString(): string {
+    return this.goose.toString() + ' pretending to be a Duck';
+  }
 }
