@@ -5,6 +5,7 @@ import Goose from '../class/Goose';
 import GooseAdapter from '../adapter/GooseAdapter';
 import Quackable from '../interface/Quackable';
 import QuackCounter from '../decorator/QuackCounter';
+import Quackologist from '../observer/Quackologist';
 
 export default class DuckSimulator {
   public static main(): void {
@@ -25,8 +26,6 @@ export default class DuckSimulator {
       const duckCall: Quackable = duckFactory.createDuckCall();
       const rubberDuck: Quackable = duckFactory.createRubberDuck();
       const gooseDuck: Quackable = new GooseAdapter(new Goose());
-
-      console.log('Duck Simulator: With Composite - Flocks');
 
       const flockOfDucks: Flock = new Flock();
 
@@ -49,13 +48,14 @@ export default class DuckSimulator {
 
       flockOfDucks.add(flockOfMallards);
 
-      console.log('Duck Simulator: Whole Flock Simulation');
+      console.log('Duck Simulator: With Observer');
+
+      const quackologist: Quackologist = new Quackologist();
+      flockOfDucks.registerObserver(quackologist);
+
       this.simulate(flockOfDucks);
 
-      console.log('Duck Simulator: Mallard Flock Simulation');
-      this.simulate(flockOfMallards);
-
-      console.log('The ducks quacked ' + QuackCounter.getQuacks() + ' times');
+      console.log('The Ducks quacked ' + QuackCounter.getQuacks() + ' times.');
     } else {
       duck.quack();
     }
