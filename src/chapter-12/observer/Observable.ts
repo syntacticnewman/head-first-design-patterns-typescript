@@ -1,5 +1,5 @@
-import Observer from '../interface/Observer';
-import QuackObservable from '../interface/QuackObservable';
+import Observer from './Observer';
+import QuackObservable from './QuackObservable';
 
 export default class Observable implements QuackObservable {
   observers: Observer[] = [];
