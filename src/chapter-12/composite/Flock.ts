@@ -1,3 +1,4 @@
+import Observer from '../observer/Observer';
 import Quackable from '../interface/Quackable';
 
 export default class Flock implements Quackable {
@@ -13,6 +14,18 @@ export default class Flock implements Quackable {
   public quack(): void {
     for (const quacker of this.quackers) {
       quacker.quack();
+    }
+  }
+
+  public registerObserver(observer: Observer): void {
+    for (const quacker of this.quackers) {
+      quacker.registerObserver(observer);
+    }
+  }
+
+  public notifyObservers(): void {
+    for (const quacker of this.quackers) {
+      quacker.notifyObservers();
     }
   }
 }

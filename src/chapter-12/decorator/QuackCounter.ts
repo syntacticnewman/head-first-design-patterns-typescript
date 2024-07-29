@@ -1,3 +1,4 @@
+import Observer from '../observer/Observer';
 import Quackable from '../interface/Quackable';
 
 export default class QuackCounter implements Quackable {
@@ -11,6 +12,14 @@ export default class QuackCounter implements Quackable {
   public quack(): void {
     this.duck.quack();
     QuackCounter.numberOfQuacks++;
+  }
+
+  public registerObserver(observer: Observer): void {
+    this.duck.registerObserver(observer);
+  }
+
+  public notifyObservers(): void {
+    this.duck.notifyObservers();
   }
 
   public static getQuacks(): number {
